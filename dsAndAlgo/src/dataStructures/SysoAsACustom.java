@@ -1,4 +1,4 @@
-package dsAndAlgo;
+package dataStructures;
 
 public class SysoAsACustom {
 
