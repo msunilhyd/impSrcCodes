@@ -9,14 +9,19 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Owner {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long ownerid;
+	
 	private	String firstname, lastname;
+	
 	public Owner() {}
+	
 	public Owner(String firstname, String lastname) {
 		super();
 		this.firstname = firstname;
@@ -24,6 +29,7 @@ public class Owner {
 	}
 	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy="owner")
+	@JsonIgnore
 	private List<Car> cars;
 	
 	public List<Car> getCars() {
